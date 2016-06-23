@@ -21,8 +21,22 @@
 
 ## list
 
-### 学习一 - 主域重定向
+### 学习编译安装nginx
+
+[linux中编译安装和配置nginx](https://xuexb.com/html/linuxzhong-bian-yi-an-zhuang-he-pei-zhi-nginx.html)
+
+### 主域重定向
 
 以`xuexb.com`为主域，访问`www.xuexb.com`时自动301重定向到`xuexb.com`
 
 [点击查看配置](conf/www.xuexb.com.conf)
+
+### 配置node反向代理
+
+### 配置https
+
+### 配置nginx前置缓存
+
+### 配置https资源代理
+
+### nginx日志切割
