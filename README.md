@@ -1,2 +1,28 @@
 # linux-nginx
-学习linux中安装nginx
+
+> 学习`linux`上安装、配置`nginx`
+
+### 目录结构
+
+```
+# 站点配置目录，存放以域名为文件名的配置文件
+./conf/
+
+# fastcgi配置 - nginx默认自带
+./fastcgi.conf
+./fastcgi_params
+
+# mime配置 - nginx默认自带
+./mime.types
+
+# nginx默认自带
+./win-utf, scgi_params, uwsgi_params, koi-utf, koi-win
+```
+
+## list
+
+### 学习一 - 主域重定向
+
+以`xuexb.com`为主域，访问`www.xuexb.com`时自动301重定向到`xuexb.com`
+
+[点击查看配置](conf/www.xuexb.com.conf)
