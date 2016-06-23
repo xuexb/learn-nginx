@@ -1,6 +1,6 @@
-# linux-nginx
+# learn-nginx
 
-> 学习`linux`上安装、配置`nginx`
+> 学习安装、配置`nginx`
 
 ### 目录结构
 
