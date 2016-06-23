@@ -40,3 +40,7 @@
 ### 配置https资源代理
 
 ### nginx日志切割
+
+### nginx负载均衡
+
+### nginx配置url重写
