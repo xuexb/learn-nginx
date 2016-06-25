@@ -22,7 +22,7 @@
 ## list
 
 * [linux中编译安装和配置nginx](https://xuexb.com/html/linuxzhong-bian-yi-an-zhuang-he-pei-zhi-nginx.html)
-* [设置主域重定向](docs/domain.md)
+* [设置主域301重定向](docs/domain.md)
 * windows中安装nginx
 * 配置node反向代理
 * 配置https
