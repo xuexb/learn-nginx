@@ -5,18 +5,14 @@
 ## 目录结构
 
 ```
-# 站点配置目录，存放以域名为文件名的配置文件
+# 站点、例子配置目录
 ./conf/
 
-# fastcgi配置 - nginx默认自带
-./fastcgi.conf
-./fastcgi_params
+# nginx配置主入口 - 默认自带
+./nginx.conf
 
-# mime配置 - nginx默认自带
-./mime.types
-
-# nginx默认自带
-./win-utf, scgi_params, uwsgi_params, koi-utf, koi-win
+# nginx默认自带其他文件
+./fastcgi_params, fastcgi.conf mime.types, win-utf, scgi_params, uwsgi_params, koi-utf, koi-win
 ```
 
 ## list
