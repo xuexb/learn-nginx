@@ -24,7 +24,7 @@
 * [linux中编译安装和配置nginx](https://xuexb.com/html/linuxzhong-bian-yi-an-zhuang-he-pei-zhi-nginx.html)
 * [设置主域301重定向](docs/domain.md)
 * [配置nodejs反向代理](docs/nodejs-proxy.md)
-* 配置https
+* [配置https](docs/https.md)
 * 配置nginx前置缓存
 * 配置https资源代理
 * nginx日志切割
