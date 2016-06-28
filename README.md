@@ -21,9 +21,10 @@
 * [设置主域301重定向](docs/domain.md)
 * [配置nodejs反向代理](docs/nodejs-proxy.md)
 * [配置https](docs/https.md)
-* 配置nginx前置缓存
-* 配置https资源代理
-* nginx日志切割
-* nginx负载均衡
-* nginx配置url重写
+* 配置图片防盗链
+* 配置前置缓存
+* 配置资源代理
+* 日志切割
+* 负载均衡
+* 配置url重写
 * windows中安装nginx
