@@ -29,4 +29,5 @@
 * 配置https资源代理
 * nginx日志切割
 * nginx负载均衡
+* 配置图片防盗链
 * windows中安装nginx
