@@ -22,6 +22,9 @@
 * [配置nodejs反向代理](docs/nodejs-proxy.md)
 * [配置https](docs/https.md)
 * [nginx配置url重写](docs/url.md)
+    * [rewrite](docs/url.md#rewrite)
+    * [if判断](docs/url.md#if判断)
+    * [location](docs/url.md#location)
 * 配置nginx前置缓存
 * 配置https资源代理
 * nginx日志切割
