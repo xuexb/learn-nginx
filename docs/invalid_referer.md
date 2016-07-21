@@ -9,7 +9,9 @@ valid_referers none | blocked | server_names | string
 * none: 表示没有来路
 * blocked: 表示有来路
 * server_names: 来路里包含当前域名
-* string: 一个域名验证的规则
+* string（忽略端口）
+    * 如果是字符串：一个域名验证的规则，*表示通配符
+    * 如果是以`~`开头：正则表达式，排除https://或http://开头的字符串
 
 以上参数可以叠加一起使用
 
