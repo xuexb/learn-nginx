@@ -26,8 +26,8 @@
     * [if判断](docs/url.md#if判断)
     * [location](docs/url.md#location)
 * [配置图片防盗链](docs/invalid_referer.md)
-* [配置nginx前置缓存](docs/proxy.md)
-* 配置https资源代理
+* [配置https资源代理](docs/proxy.md)
+* 配置nginx前置缓存
 * nginx日志切割
 * nginx负载均衡
 * windows中安装nginx

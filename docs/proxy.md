@@ -2,8 +2,6 @@
 
 ```conf
 server {
-    root /wwwroot/proxy/;
-
     # 全部代理
     location ~ ^/(.*)$ {
         proxy_connect_timeout    10s;
