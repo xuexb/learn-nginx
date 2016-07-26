@@ -28,6 +28,6 @@
 * [配置图片防盗链](docs/invalid_referer.md)
 * [配置https资源代理](docs/proxy.md)
 * [配置nginx前置缓存](docs/cache.md)
+* [nginx负载均衡](docs/upstream.md)
 * nginx日志切割
-* nginx负载均衡
 * windows中安装nginx
