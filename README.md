@@ -23,6 +23,7 @@
 
 ## list
 
+* [nginx配置文件说明](docs/conf.md)
 * [linux中编译安装和配置nginx](https://xuexb.com/html/linuxzhong-bian-yi-an-zhuang-he-pei-zhi-nginx.html)
 * [设置主域301重定向](docs/domain.md)
 * [配置nodejs反向代理](docs/nodejs-proxy.md)
