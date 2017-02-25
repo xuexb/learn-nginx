@@ -39,3 +39,20 @@
 * [nginx负载均衡](docs/upstream.md)
 * nginx日志切割
 * windows中安装nginx
+
+## 常见错误和解决方法
+
+#### nginx: [emerg] getpwnam("nginx") failed
+
+表示该用户`nginx`不存在, 解决方法:
+
+1. 在`nginx.conf`里添加`user nobody;`
+2. 创建用户和用户对应的分组
+
+
+#### nginx: [emerg] getgrnam("xiaowu") failed
+
+表示用户分组不存在, 解决方法:
+
+1. 在`nginx.conf`里添加`user nobody;`
+2. 创建用户对应的分组
