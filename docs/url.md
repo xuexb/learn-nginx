@@ -209,6 +209,23 @@ location表达式类型
 1. 正则表达式类型（~ ~*）的优先级次之。如果有多个location的正则能匹配的话，则使用正则表达式最长的那个。
 1. 常规字符串匹配类型。按前缀匹配。
 
-### 例子
+### 例子 - 假地址掩饰真地址
+
+```nginx
+server {
+    # 用 xxoo_admin 来掩饰 admin
+    location / {
+        # 使用break拿一旦匹配成功则忽略后续location
+        rewrite /xxoo_admin /admin break;
+    }
+
+    # 访问真实地址直接报没权限
+    location /admin {
+        return 403;
+    }
+}
+```
+
+### 参数链接
 
 参考 [Nginx location在配置中的优先级](http://www.linuxeye.com/configuration/2657.html)
