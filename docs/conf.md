@@ -142,3 +142,7 @@ http {
     include servers/*;
 }
 ```
+
+## links
+
+- [静态资源web服务器配置详解](http://xuding.blog.51cto.com/4890434/1743666)
