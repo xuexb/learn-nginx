@@ -14,11 +14,8 @@
 # 站点、例子配置目录
 ./conf/
 
-# nginx配置主入口 - 默认自带
-./nginx.conf
-
-# nginx默认自带其他文件
-./fastcgi_params, fastcgi.conf mime.types, win-utf, scgi_params, uwsgi_params, koi-utf, koi-win
+# 说明文档
+./docs/
 ```
 
 ## list
