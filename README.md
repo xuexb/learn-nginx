@@ -34,7 +34,7 @@
 * [配置https资源代理](docs/proxy.md)
 * [配置nginx前置缓存](docs/cache.md)
 * [nginx负载均衡](docs/upstream.md)
-* [iconfong字体跨域配置](docs/iconfont.md)
+* [iconfont字体跨域配置](docs/iconfont.md)
 * nginx日志切割
 * windows中安装nginx
 
