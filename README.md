@@ -37,6 +37,7 @@
 * [nginx负载均衡](docs/upstream.md)
 * [iconfont字体跨域配置](docs/iconfont.md)
 * [安装nginx-http-concat](docs/nginx-http-concat.md)
+* [安装nginx-echo](https://xuexb.com/post/nginx-echo-module.html)
 * nginx日志切割
 * windows中安装nginx
 
