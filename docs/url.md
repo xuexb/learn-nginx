@@ -96,6 +96,8 @@ if (表达式) {
 
 ### 内置的全局变量
 
+更多变量请看: [https://echo.xuexb.com/#t6](https://echo.xuexb.com/#t6)
+
 ```
 $args ：这个变量等于请求行中的参数，同$query_string
 $content_length ： 请求头中的Content-length字段。
