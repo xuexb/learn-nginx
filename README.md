@@ -28,7 +28,7 @@
 * [配置nodejs反向代理](docs/nodejs-proxy.md)
 * [配置https](docs/https.md)
 * [nginx配置url重写](docs/url.md)
-    * [rewrite](docs/url.md#rewrite)
+    * [rewrite重写, 301、302跳转](docs/url.md#rewrite)
     * [if判断](docs/url.md#if判断)
     * [location](docs/url.md#location)
 * [配置图片防盗链](docs/invalid_referer.md)
@@ -38,6 +38,8 @@
 * [iconfont字体跨域配置](docs/iconfont.md)
 * [安装nginx-http-concat](docs/nginx-http-concat.md)
 * [安装nginx-echo](https://xuexb.com/post/nginx-echo-module.html)
+* 配置默认主页、目录浏览
+* 设置状态码
 * nginx日志切割
 * windows中安装nginx
 
