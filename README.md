@@ -72,3 +72,6 @@
 
 pid进程id文件不存在, 可能文件被删除或者已经停止, 在停止nginx时会使用该进程id, 如果不存在将失败, 可以手动kill掉
 
+### nginx: [emerg] unknown "realpath_roots_xxx" variable
+
+变量`$realpath_roots_xxx`不存在
