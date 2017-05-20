@@ -26,4 +26,4 @@ if ( $host != 'xuexb.com' ){
 
 ---
 
-[点击查看nginx全局变量](http://www.nginx.cn/273.html)
+[点击查看nginx全局变量](https://echo.xuexb.com/api/dump/path?a=1&%E4%B8%AD%E6%96%87=%E5%A5%BD%E7%9A%84#123)
