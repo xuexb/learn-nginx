@@ -1,6 +1,6 @@
 # learn-nginx
 
-> 学习安装、配置`nginx`
+学习安装、配置`nginx`, 如果你有什么想学习的case或者想完成某些配置, 可在 [issues](https://github.com/xuexb/learn-nginx/issues) 创建~
 
 ## 在学习之前你可能需要掌握的
 
@@ -8,21 +8,13 @@
 * 域名，当然如果是本地玩玩也可以是`Hosts`
 * 基本的正则表达式
 
-## 目录结构
-
-```
-# 站点、例子配置目录
-./conf/
-
-# 说明文档
-./docs/
-```
-
 ## list
+
+> 修改配置文件后需要重启、刷新`nginx`服务, 如: `[sudo] nginx -s reload`
 
 * [nginx配置文件说明](docs/conf.md)
 * [nginx状态码配置和错误文件](docs/status.md)
-* [linux中编译安装和配置nginx](https://xuexb.com/html/linuxzhong-bian-yi-an-zhuang-he-pei-zhi-nginx.html)
+* [linux中编译安装和配置nginx](docs/linux-make.md)
 * [重新编译安装](docs/reload-make.md)
 * [设置主域301重定向](docs/domain.md)
 * [配置nodejs反向代理](docs/nodejs-proxy.md)
@@ -37,9 +29,9 @@
 * [nginx负载均衡](docs/upstream.md)
 * [iconfont字体跨域配置](docs/iconfont.md)
 * [安装nginx-http-concat](docs/nginx-http-concat.md)
-* [安装nginx-echo](https://xuexb.com/post/nginx-echo-module.html)
+* [安装nginx-echo](docs/nginx-echo-module.md)
 * [nginx日志切割-shell脚本](docs/split-logs.md)
-* 配置默认主页、目录浏览
+* [配置默认主页、目录浏览](docs/autoindex.md)
 * 设置状态码
 * windows中安装nginx
 
