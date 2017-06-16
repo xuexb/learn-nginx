@@ -12,26 +12,27 @@
 
 > 修改配置文件后需要重启、刷新`nginx`服务, 如: `[sudo] nginx -s reload`
 
-* [nginx配置文件说明](docs/conf.md)
-* [nginx状态码配置和错误文件](docs/status.md)
-* [linux中编译安装和配置nginx](docs/linux-make.md)
-* [重新编译安装](docs/reload-make.md)
-* [设置主域301重定向](docs/domain.md)
-* [配置nodejs反向代理](docs/nodejs-proxy.md)
-* [配置https](docs/https.md)
-* [nginx配置url重写](docs/url.md)
+* [nginx配置文件说明](docs/conf.md) - done
+* [nginx状态码配置和错误文件](docs/status.md) - done
+* [linux中编译安装和配置nginx](docs/linux-make.md) - done
+* [重新编译安装](docs/reload-make.md) - done
+* [设置主域301重定向](docs/domain.md) - done
+* [配置nodejs反向代理](docs/nodejs-proxy.md) - done
+* [配置https](docs/https.md) - done
+* [nginx配置url重写](docs/url.md) - done
     * [rewrite重写, 301、302跳转](docs/url.md#rewrite)
     * [if判断](docs/url.md#if判断)
     * [location](docs/url.md#location)
-* [配置图片防盗链](docs/invalid_referer.md)
-* [配置https资源代理](docs/proxy.md)
-* [配置nginx前置缓存](docs/cache.md)
-* [nginx负载均衡](docs/upstream.md)
-* [iconfont字体跨域配置](docs/iconfont.md)
-* [安装nginx-http-concat](docs/nginx-http-concat.md)
-* [安装nginx-echo](docs/nginx-echo-module.md)
-* [nginx日志切割-shell脚本](docs/split-logs.md)
-* [配置默认主页、目录浏览](docs/autoindex.md)
+* [配置图片防盗链](docs/invalid_referer.md) - done
+* [iconfont字体跨域配置](docs/iconfont.md) - done
+* [安装nginx-http-concat](docs/nginx-http-concat.md) - done
+* [安装nginx-echo](docs/nginx-echo-module.md) - done
+* [nginx日志切割-shell脚本](docs/split-logs.md) - done
+* [配置默认主页、目录浏览](docs/autoindex.md) - done
+* [配置https资源代理](docs/proxy.md) - ing
+* [配置nginx前置缓存](docs/cache.md) - ing
+* [nginx负载均衡](docs/upstream.md) - ing
+* 配置浏览器缓存
 * 设置状态码
 * windows中安装nginx
 

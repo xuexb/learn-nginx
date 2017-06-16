@@ -13,12 +13,14 @@ www.xuexb.com/a/b/c/404.html => xuexb.com/a/b/c/404.html
 配置文件核心：
 
 ```
-# 设置多个域名
-server_name www.xuexb.com xuexb.com;
+server {
+    # 设置多个域名
+    server_name www.xuexb.com xuexb.com;
 
-# 判断host是不是xuexb.com，如果不是则直接301重定向，permanent表示301
-if ( $host != 'xuexb.com' ){
-    rewrite ^/(.*)$ http://xuexb.com/$1 permanent;
+    # 判断host是不是xuexb.com，如果不是则直接301重定向，permanent表示301
+    if ( $host != 'xuexb.com' ){
+        rewrite ^/(.*)$ http://xuexb.com/$1 permanent;
+    }
 }
 ```
 

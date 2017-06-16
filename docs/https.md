@@ -13,6 +13,9 @@ server {
     # 配置域名
     server_name www.xxoo.com xxoo.com;
 
+    # 添加STS, 并让所有子域支持, 开启需慎重
+    add_header strict-transport-security 'max-age=31536000; includeSubDomains; preload';
+
     # 配置让这些http的访问全部301重定向到https的
     rewrite ^(.*) https://www.xxoo.com$1 permanent;
 }
@@ -24,6 +27,9 @@ server {
 
     # https默认端口
     listen 443;
+
+    # 添加STS, 并让所有子域支持, 开启需慎重
+    add_header strict-transport-security 'max-age=31536000; includeSubDomains; preload';
 
     # https配置
     ssl on;
