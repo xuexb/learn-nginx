@@ -228,6 +228,47 @@ server {
 }
 ```
 
+## 匹配小提示
+
+```nginx
+server {
+    # 用if匹配任何以 403 开头的, 会匹配到 /4034444  /403aaa /403/
+    if ($request_uri ~* ^/403) {
+        return 403;
+    }
+
+    # 用location匹配 /500/ /500, 但不匹配 /500/1
+    location ~* "^/500/?$" {
+        return 500;
+    }
+
+    # 用if匹配以 /501/ 开头的, 匹配 /501/1, /501/1/2 但不匹配 /501
+    if ($request_uri ~* ^/501/) {
+        return 501;
+    }
+
+    # 用location匹配 /502/ /502 /502/1 /502/1/2
+    location ~* "^/502(/.*)?$" {
+        return 502;
+    }
+
+    # 用location只匹配 /503
+    location = /503 {
+        return 503;
+    }
+
+    # 用location只匹配 /503
+    location = /503 {
+        return 503;
+    }
+
+    # 用location匹配 /504/  /504/1  但不匹配 /504
+    location /504/ {
+        return 504;
+    }
+}
+```
+
 ### 参数链接
 
 参考 [Nginx location在配置中的优先级](http://www.linuxeye.com/configuration/2657.html)
