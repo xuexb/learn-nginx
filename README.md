@@ -68,3 +68,7 @@ pid进程id文件不存在, 可能文件被删除或者已经停止, 在停止ng
 ### nginx: [emerg] unknown "realpath_roots_xxx" variable
 
 变量`$realpath_roots_xxx`不存在
+
+### nginx: [emerg] "add_header" directive is not allowed here in xx
+
+`add_header`指令不能直接在`if`判断内, 可以在`http`、`server`、`server.location`、`server.location.if`下
