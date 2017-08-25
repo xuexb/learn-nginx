@@ -24,3 +24,7 @@ server {
     }
 }
 ```
+
+## link
+
+- [使用CORS跨域](./cors.md)
