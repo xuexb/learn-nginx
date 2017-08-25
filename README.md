@@ -29,11 +29,10 @@
 * [安装nginx-echo](docs/nginx-echo-module.md) - done
 * [nginx日志切割-shell脚本](docs/split-logs.md) - done
 * [配置默认主页、目录浏览](docs/autoindex.md) - done
+* [配置浏览器缓存](docs/expires.md) - done
 * [配置https资源代理](docs/proxy.md) - ing
 * [配置nginx前置缓存](docs/cache.md) - ing
 * [nginx负载均衡](docs/upstream.md) - ing
-* 配置浏览器缓存
-* 设置状态码
 * windows中安装nginx
 
 ## 常见错误和解决方法
