@@ -18,8 +18,8 @@ server {
     }
 
     # 把指定状态码指向这个文件uri
-    error_page 500 502 503 504 = /status.html;
-    error_page 404 = /status.html;
+    error_page 500 502 503 504 /status.html;
+    error_page 404 /status.html;
 }
 ```
 
@@ -58,3 +58,23 @@ server {
     }
 }
 ```
+
+### error_page配置小提示
+
+注意`error_page`配置时加`=`和不加`=`的区别, 加了`=`表示响应为指定的`http status code`, 默认为200, 不加`=`为原错误的状态码~
+
+```nginx
+# 这样可以访问错误页面时 http status 为404, 并且页面内容是404.html的内容
+error_page 404 /404.html
+error_page 404 500 /404.html;
+
+# 这样配置访问错误页面时 http status 为200, 但页面内容是404.html的内容
+error_page 404 500 = /404.html;
+
+# 这样配置访问错误页面时 http status 为404, 但页面内容是404.html的内容
+error_page 404 500 =404 /404.html;
+
+# 也可以把404请求直接301到某个域上
+error_page 404 =301 https://xuexb.com/404;
+```
+
