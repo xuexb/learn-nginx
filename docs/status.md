@@ -78,3 +78,4 @@ error_page 404 500 =404 /404.html;
 error_page 404 =301 https://xuexb.com/404;
 ```
 
+这样就可以根据自己需求配置错误页为指定的状态码, 因为非 200 的状态码可能会被浏览器拦截, 摘自: https://github.com/thinkjs/thinkjs/issues/522
