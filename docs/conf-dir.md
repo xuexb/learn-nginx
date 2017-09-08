@@ -28,7 +28,8 @@ $HOME/local/nginx/                      - nginx相关根目录
         ./last/                         - 最新的日志
             ./xuexb.com.error.log       - 博客错误日志
             ./xuexb.com.access.log      - 博客访问日志
-        ./back/                         - 备份日志             
+        ./back/                         - 备份日志
+            ./20170908/                 - 天级的备份日志
 ```
 
 这样分离之后不管是nginx主程序版本升级, 还是修改某个站点配置, 还是快速查找某个站点日志都是得心应手~
