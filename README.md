@@ -13,6 +13,7 @@
 > 修改配置文件后需要重启、刷新`nginx`服务, 如: `[sudo] nginx -s reload`
 
 * [nginx配置文件说明](docs/conf.md) - done
+* [nginx配置目录建议](docs/conf-dir.md) - done
 * [nginx状态码配置和错误文件](docs/status.md) - done
 * [linux中编译安装和配置nginx](docs/linux-make.md) - done
 * [重新编译安装](docs/reload-make.md) - done
