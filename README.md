@@ -26,6 +26,7 @@
     * [location](docs/url.md#location)
 * [配置图片防盗链](docs/invalid_referer.md) - done
 * [配置CORS跨域](docs/cors.md) - done
+* [配置泛域名转发](docs/panDomainName.md) - done
 * [iconfont字体跨域配置](docs/iconfont.md) - done
 * [安装nginx-http-concat](docs/nginx-http-concat.md) - done
 * [安装nginx-echo](docs/nginx-echo-module.md) - done
