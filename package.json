@@ -1,0 +1,18 @@
+{
+  "name": "learn-nginx",
+  "version": "1.0.0",
+  "description": "学习nginx配置, 包括: 编译安装、反向代理、重定向、url重写、nginx缓存、跨域配置等",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuexb/learn-nginx.git"
+  },
+  "author": "xuexb <fe.xiaowu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuexb/learn-nginx/issues"
+  },
+  "homepage": "https://github.com/xuexb/learn-nginx#readme"
+}
