@@ -1,4 +1,4 @@
-# Nginx 入门教程
+# [Nginx 入门教程](https://xuexb.github.io/learn-nginx/)
 
 [![](https://travis-ci.org/xuexb/learn-nginx.svg?branch=master)](https://github.com/xuexb/learn-nginx)
 
