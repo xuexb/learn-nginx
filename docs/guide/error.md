@@ -2,7 +2,7 @@
 
 ### 配置不生效
 
-更新配置后使用 `[sudo] /your/path/nginx -s reload` 热重载服务
+更新配置后使用 `[sudo] /your/path/nginx -s reload` 热重载服务。
 
 ### nginx: [emerg] getpwnam("nginx") failed
 

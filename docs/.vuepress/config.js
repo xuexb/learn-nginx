@@ -38,39 +38,64 @@ module.exports = {
           sidebar: {
             '/guide/': genSidebarConfigGuide('入门'),
             '/variable/': genSidebarConfigVariable('变量'),
+            '/example/': genSidebarConfigExample('示例'),
           }
         },
       }
     }
   }
 
-  function genSidebarConfigGuide (title) {
-    return [
-      {
-        title,
-        collapsable: false,
-        children: [
-          '',
-          'dir',
-          'linux-install',
-          'nginx-configure-descriptions',
-          'error',
-        ]
-      }
-    ]
-  }
+function genSidebarConfigGuide (title) {
+  return [
+    {
+      title,
+      collapsable: false,
+      children: [
+        '',
+        'dir',
+        'linux-install',
+        'nginx-configure-descriptions',
+        'error',
+      ]
+    }
+  ]
+}
 
-  function genSidebarConfigVariable (title) {
-    return [
-      {
-        title,
-        collapsable: false,
-        children: [
-          '',
-          'server',
-          'client',
-          'url',
-        ]
-      }
-    ]
-  }
+function genSidebarConfigVariable (title) {
+  return [
+    {
+      title,
+      collapsable: false,
+      children: [
+        '',
+        'server',
+        'client',
+        'url',
+      ]
+    }
+  ]
+}
+
+function genSidebarConfigExample (title) {
+  return [
+    {
+      title,
+      collapsable: false,
+      children: [
+        '',
+        'error-page',
+        'www-permanent',
+        'nodejs-proxy',
+        'image-valid',
+        'https',
+        'domain',
+        'echo',
+        'http-concat',
+        'split-log',
+        'expires',
+        'autoindex',
+      ]
+    }
+  ]
+}
+
