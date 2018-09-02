@@ -47,7 +47,7 @@ docs                - 文档目录
 <a id="pull-request"></a>
 ### 提交请求（pull request）
 
-1. fork [mipengine/www.mipengine.org](https://github.com/mipengine/www.mipengine.org)
+1. fork [xuexb/learn-nginx](https://github.com/xuexb/learn-nginx)
 1. 把个人仓库（repository）克隆到电脑上，并安装所依赖的插件。
 1. 开始编辑文件，可以通过命令 `npm run dev` 预览编辑的效果。
 1. 推送（push）分支。
@@ -57,7 +57,7 @@ docs                - 文档目录
 ## 文档说明
 
 - 文档基于 Markdown 格式编写。
-- 文档编辑地址可通过访问文档右上角编辑按钮获得。
+- 文档编辑地址可通过访问文档左下角编辑按钮获得。
 - 文档内链接使用绝对路径，如： `[新的起点](/guide/dir.html)` 。
 - 使用中文半角标点符号。
 - 名词区分大小写。
