@@ -1,5 +1,9 @@
 # 常见错误
 
+### 配置不生效
+
+更新配置后使用 `[sudo] /your/path/nginx -s reload` 热重载服务
+
 ### nginx: [emerg] getpwnam("nginx") failed
 
 表示该用户 `nginx` 不存在， 解决方法:
