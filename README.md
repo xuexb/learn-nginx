@@ -1,4 +1,6 @@
-# Nginx 入门教程
+# [Nginx 入门教程](https://xuexb.github.io/learn-nginx/)
+
+[![](https://travis-ci.org/xuexb/learn-nginx.svg?branch=master)](https://github.com/xuexb/learn-nginx)
 
 学习 Nginx 配置, 包括: 编译安装、反向代理、重定向、重写、缓存、跨域配置等。
 
