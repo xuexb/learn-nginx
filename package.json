@@ -1,7 +1,7 @@
 {
   "name": "learn-nginx",
   "version": "2.0.0",
-  "description": "学习 Nginx 配置, 包括: 编译安装、反向代理、重定向、重写、缓存、跨域配置等",
+  "description": "学习 Nginx 配置，包括: 编译安装、反向代理、重定向、重写、缓存、跨域配置等",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
