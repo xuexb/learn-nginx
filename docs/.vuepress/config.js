@@ -94,6 +94,7 @@ function genSidebarConfigExample (title) {
         'split-log',
         'expires',
         'autoindex',
+        'add_header',
       ]
     }
   ]
