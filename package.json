@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/xuexb/learn-nginx#readme",
   "devDependencies": {
-    "vuepress": "^0.13.1"
+    "vuepress": "^1.0.0-alpha.42"
   }
 }
