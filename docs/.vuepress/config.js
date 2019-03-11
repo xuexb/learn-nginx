@@ -95,6 +95,7 @@ function genSidebarConfigExample (title) {
         'expires',
         'autoindex',
         'add_header',
+        'proxy_pass',
       ]
     }
   ]
