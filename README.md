@@ -1,6 +1,7 @@
 # [Nginx 入门教程](https://xuexb.github.io/learn-nginx/)
 
 [![](https://travis-ci.org/xuexb/learn-nginx.svg?branch=master)](https://github.com/xuexb/learn-nginx)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/891550d0-806a-4e2d-9e0d-b0c3d8afec94/deploy-status)](https://app.netlify.com/sites/learn-nginx/deploys)
 
 学习 Nginx 配置, 包括: 编译安装、反向代理、重定向、重写、缓存、跨域配置等。
 
