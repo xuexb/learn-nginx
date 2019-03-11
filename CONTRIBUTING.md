@@ -18,17 +18,17 @@
 <a id="develop"></a>
 ## 开发设置
 
-项目依赖 VuePress ，需要安装 [Node.js](https://nodejs.org/) 版本8+ ，下载项目到本地后安装依赖 `yarn install` 。
+项目依赖 [VuePress](https://vuepress.vuejs.org/) ，需要安装 [Node.js](https://nodejs.org/) 版本8+ ，下载项目到本地后安装依赖 `yarn install` 。
 
 <a id="npm-scripts"></a>
-### 常用脚本命令（npm scripts）
+### 常用脚本命令
 
 ``` bash
 # 启动本地 HTTP 服务器用来本地预览
-$ npm run dev
+$ yarn dev
 
 # 编译 markdown 文档为 html 文件
-$ npm run build
+$ yarn build
 ```
 
 <a id="dir-spec"></a>
@@ -49,7 +49,7 @@ docs                - 文档目录
 
 1. fork [xuexb/learn-nginx](https://github.com/xuexb/learn-nginx)
 1. 把个人仓库（repository）克隆到电脑上，并安装所依赖的插件。
-1. 开始编辑文件，可以通过命令 `npm run dev` 预览编辑的效果。
+1. 开始编辑文件，可以通过命令 `yarn dev` 预览编辑的效果。
 1. 推送（push）分支。
 1. 建立一个新的合并申请（pull request）并描述变动。
 
