@@ -4,7 +4,7 @@
 
 直接可以使用目录形式打开的页面称为默认主页，一般常见的有: `index.html`、`index.htm`、`index.php` 这些，要吧通过配置来完成，如:
 
-```conf
+```nginx
 server {
     root /网站根目录;
 
@@ -17,7 +17,7 @@ server {
 
 当一个目录内没有默认主页的文件时，直接访问目录会报 `403 Forbidden` 错误，而启用目录浏览功能后可以直接列出当前目录下的文件、文件夹，如:
 
-```conf
+```nginx
 server {
     root /网站根目录;
 
