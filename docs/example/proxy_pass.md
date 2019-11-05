@@ -77,7 +77,7 @@ location / {
 // 访问：   /api/                           后端：   /
 // 访问：   /api/xx                         后端：   /xx
 // 访问：   /api/xx?aa                      后端：   /xx?aa
-// 访问：   /api-xx?aa                      后端：
+// 访问：   /api-xx?aa                      未匹配
 location /api/ {
     proxy_pass http://node:8080/;
 }
@@ -94,7 +94,7 @@ location /api {
 // 访问：   /api/                           后端：   /v1
 // 访问：   /api/xx                         后端：   /v1xx
 // 访问：   /api/xx?aa                      后端：   /v1xx
-// 访问：   /api-xx?aa                      后端：   /-xx?aa
+// 访问：   /api-xx?aa                      未匹配
 location /api/ {
     proxy_pass http://node:8080/v1;
 }
@@ -102,7 +102,7 @@ location /api/ {
 // 访问：   /api/                           后端：   /v1/
 // 访问：   /api/xx                         后端：   /v1/xx
 // 访问：   /api/xx?aa                      后端：   /v1/xx
-// 访问：   /api-xx?aa                      后端：
+// 访问：   /api-xx?aa                      未匹配
 location /api/ {
     proxy_pass http://node:8080/v1/;
 }
