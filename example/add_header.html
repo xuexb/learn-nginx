@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>add_header 指令技巧 | Nginx 入门教程</title>
+    <meta name="description" content="学习 Nginx 配置, 包括: 编译安装、反向代理、重定向、重写、缓存、跨域配置等">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/learn-nginx/logo.jpg">
+    
+    <link rel="preload" href="/learn-nginx/assets/css/0.styles.ad2e1a68.css" as="style"><link rel="preload" href="/learn-nginx/assets/js/app.1c4c538c.js" as="script"><link rel="preload" href="/learn-nginx/assets/js/2.9a13f091.js" as="script"><link rel="preload" href="/learn-nginx/assets/js/8.8abf6ca0.js" as="script"><link rel="prefetch" href="/learn-nginx/assets/js/10.196aa240.js"><link rel="prefetch" href="/learn-nginx/assets/js/11.22647cc5.js"><link rel="prefetch" href="/learn-nginx/assets/js/12.6f7d9112.js"><link rel="prefetch" href="/learn-nginx/assets/js/13.7e6c2cad.js"><link rel="prefetch" href="/learn-nginx/assets/js/14.6a369d36.js"><link rel="prefetch" href="/learn-nginx/assets/js/15.dc022b78.js"><link rel="prefetch" href="/learn-nginx/assets/js/16.7f73c2a8.js"><link rel="prefetch" href="/learn-nginx/assets/js/17.c4925c6e.js"><link rel="prefetch" href="/learn-nginx/assets/js/18.8dc14074.js"><link rel="prefetch" href="/learn-nginx/assets/js/19.c97e5511.js"><link rel="prefetch" href="/learn-nginx/assets/js/20.1a65780a.js"><link rel="prefetch" href="/learn-nginx/assets/js/21.d6bbd207.js"><link rel="prefetch" href="/learn-nginx/assets/js/22.b0a82c9f.js"><link rel="prefetch" href="/learn-nginx/assets/js/23.0f04b34a.js"><link rel="prefetch" href="/learn-nginx/assets/js/24.b6bc2a39.js"><link rel="prefetch" href="/learn-nginx/assets/js/25.457e175f.js"><link rel="prefetch" href="/learn-nginx/assets/js/26.112eb492.js"><link rel="prefetch" href="/learn-nginx/assets/js/27.aba9c3f3.js"><link rel="prefetch" href="/learn-nginx/assets/js/28.56cf6258.js"><link rel="prefetch" href="/learn-nginx/assets/js/29.ea48211d.js"><link rel="prefetch" href="/learn-nginx/assets/js/3.b1dc9dc3.js"><link rel="prefetch" href="/learn-nginx/assets/js/30.9404d874.js"><link rel="prefetch" href="/learn-nginx/assets/js/31.a26ec89b.js"><link rel="prefetch" href="/learn-nginx/assets/js/4.5f60d4ea.js"><link rel="prefetch" href="/learn-nginx/assets/js/5.3ae4be87.js"><link rel="prefetch" href="/learn-nginx/assets/js/6.d9149e77.js"><link rel="prefetch" href="/learn-nginx/assets/js/7.2d970754.js"><link rel="prefetch" href="/learn-nginx/assets/js/9.0899acfe.js">
+    <link rel="stylesheet" href="/learn-nginx/assets/css/0.styles.ad2e1a68.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learn-nginx/" class="home-link router-link-active"><!----> <span class="site-name">Nginx 入门教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/learn-nginx/guide/" class="nav-link">
+  入门
+</a></div><div class="nav-item"><a href="/learn-nginx/variable/" class="nav-link">
+  变量
+</a></div><div class="nav-item"><a href="/learn-nginx/example/" class="nav-link router-link-active">
+  示例
+</a></div> <a href="https://github.com/xuexb/learn-nginx" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/learn-nginx/guide/" class="nav-link">
+  入门
+</a></div><div class="nav-item"><a href="/learn-nginx/variable/" class="nav-link">
+  变量
+</a></div><div class="nav-item"><a href="/learn-nginx/example/" class="nav-link router-link-active">
+  示例
+</a></div> <a href="https://github.com/xuexb/learn-nginx" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>示例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn-nginx/example/" class="sidebar-link">示例</a></li><li><a href="/learn-nginx/example/error-page.html" class="sidebar-link">Nginx 状态码配置和错误文件</a></li><li><a href="/learn-nginx/example/www-permanent.html" class="sidebar-link">主域301重定向</a></li><li><a href="/learn-nginx/example/nodejs-proxy.html" class="sidebar-link">Node.js 反向代理</a></li><li><a href="/learn-nginx/example/image-valid.html" class="sidebar-link">配置图片防盗链</a></li><li><a href="/learn-nginx/example/https.html" class="sidebar-link">配置 HTTPS</a></li><li><a href="/learn-nginx/example/domain.html" class="sidebar-link">配置泛域名转发</a></li><li><a href="/learn-nginx/example/echo.html" class="sidebar-link">学习使用 echo 模块</a></li><li><a href="/learn-nginx/example/http-concat.html" class="sidebar-link">使用 nginx-http-concat</a></li><li><a href="/learn-nginx/example/split-log.html" class="sidebar-link">日志切割 - Shell</a></li><li><a href="/learn-nginx/example/expires.html" class="sidebar-link">配置浏览器缓存</a></li><li><a href="/learn-nginx/example/autoindex.html" class="sidebar-link">配置默认主页、目录浏览</a></li><li><a href="/learn-nginx/example/add_header.html" class="active sidebar-link">add_header 指令技巧</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/learn-nginx/example/add_header.html#使用-include-语法" class="sidebar-link">使用 include 语法</a></li></ul></li><li><a href="/learn-nginx/example/proxy_pass.html" class="sidebar-link">proxy_pass url 反向代理的坑</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="add-header-指令技巧"><a href="#add-header-指令技巧" class="header-anchor">#</a> add_header 指令技巧</h1> <p>官方的介绍：</p> <blockquote><p>Adds the specified field to a response header provided that the response code equals 200, 201 (1.3.10), 204, 206, 301, 302, 303, 304, 307 (1.1.16, 1.0.13), or 308 (1.13.0). The value can contain variables.</p> <p>There could be several add_header directives. These directives are inherited from the previous level if and only if there are no add_header directives defined on the current level.</p> <p>If the always parameter is specified (1.7.5), the header field will be added regardless of the response code.</p></blockquote> <p>意思也就是说话在响应状态码<strong>成功</strong>时，<code>add_header</code> 指令才生效，并且当前《作用域》下没有 <code>add_header</code> 指令时，会向上层继承。</p> <p>在使用过程中难免会遇到上级指令被覆盖的情况，如：</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">add_header</span> x<span class="token operator">-</span>name nginx<span class="token punctuation">;</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">root</span> <span class="token operator">/</span>path<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">location</span> <span class="token operator">/</span>static<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">add_header</span> x<span class="token operator">-</span>name2 nginx2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>当匹配到 <code>/</code> 时，由于 <code>location /</code> 中没有 <code>add_header</code> 指令，所以会继承 <code>server</code> 中的 <code>x-name</code> ，而当匹配到 <code>/static/</code> 时，由于内容已经有 <code>add_header</code> 指令，则上层的 <code>x-name</code> 不会被继承，导致只会输出 <code>x-name2</code> 。</p> <h2 id="使用-include-语法"><a href="#使用-include-语法" class="header-anchor">#</a> 使用 include 语法</h2> <p>因为项目中的应用往往配置会有很多，我们可以把具体的功能拆分成独立的配置文件，使用 <code>include</code> 引用进来，如：</p> <ul><li><code>inc/no-cache.conf</code> - 无缓存</li> <li><code>inc/cache-max.conf</code> - 缓存最大</li> <li><code>inc/sts.conf</code> - STS</li> <li><code>inc/xss.conf</code> - XSS 安全过滤</li> <li><code>inc/php.conf</code> - PHP FastCGI</li> <li>...</li></ul> <p>这样就可以按需引用了，如：</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>no<span class="token operator">-</span>cache<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># png,jpg 转 webp</span>
+<span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> \<span class="token punctuation">.</span><span class="token punctuation">(</span>jpg<span class="token operator">|</span>png<span class="token operator">|</span>meibanfawojiuxiangchangdianyirangquanzhongdadian<span class="token punctuation">)</span>$ <span class="token punctuation">{</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>cache<span class="token operator">-</span>max<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$cookie_webp</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">rewrite</span> <span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>$ <span class="token operator">/</span>$<span class="token number">1.</span>webp last<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> \<span class="token punctuation">.</span>webp$ <span class="token punctuation">{</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>cache<span class="token operator">-</span>max<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> @webp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">location</span> @webp <span class="token punctuation">{</span>
+    content_by_lua_file <span class="token string">'lua/webp.lua'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># http-concat + max cache</span>
+<span class="token keyword">location</span> <span class="token operator">/</span>style<span class="token operator">/</span>js<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>cache<span class="token operator">-</span>max<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    concat on<span class="token punctuation">;</span>
+    concat_types application<span class="token operator">/</span>javascript<span class="token punctuation">;</span>
+    concat_max_files <span class="token number">30</span><span class="token punctuation">;</span>
+    <span class="token keyword">default_type</span> application<span class="token operator">/</span>javascript<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">location</span> <span class="token operator">/</span>style<span class="token operator">/</span>css<span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>cache<span class="token operator">-</span>max<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    concat on<span class="token punctuation">;</span>
+    concat_types text<span class="token operator">/</span>css<span class="token punctuation">;</span>
+    concat_max_files <span class="token number">30</span><span class="token punctuation">;</span>
+    <span class="token keyword">default_type</span> text<span class="token operator">/</span>css<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 时效性高的接口</span>
+<span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> <span class="token operator">^</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">(</span>so\<span class="token operator">/</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">||</span>ajax<span class="token punctuation">)</span>\<span class="token punctuation">.</span>php$ <span class="token punctuation">{</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>php<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">add_header</span> cache<span class="token operator">-</span>control <span class="token string">'private, max-age=0, no-cache'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 其实所有的 php</span>
+<span class="token keyword">location</span> <span class="token operator">~</span><span class="token operator">*</span> \<span class="token punctuation">.</span>php$ <span class="token punctuation">{</span>
+    <span class="token keyword">set</span> <span class="token variable">$skip_cache</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> POST<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">set</span> <span class="token variable">$skip_cache</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$arg_nocache</span> <span class="token operator">=</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">set</span> <span class="token variable">$skip_cache</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">fastcgi_cache_key</span> <span class="token variable">$scheme</span><span class="token variable">$request_method</span><span class="token variable">$host</span><span class="token variable">$request_uri</span><span class="token punctuation">;</span>
+    <span class="token keyword">fastcgi_cache_use_stale</span>
+        error
+        <span class="token keyword">timeout</span>
+        invalid_header
+        updating
+        http_500
+        http_503<span class="token punctuation">;</span>
+    <span class="token keyword">fastcgi_cache_bypass</span> <span class="token variable">$skip_cache</span><span class="token punctuation">;</span>
+    <span class="token keyword">fastcgi_no_cache</span> <span class="token variable">$skip_cache</span><span class="token punctuation">;</span>
+    <span class="token keyword">fastcgi_cache_valid</span> <span class="token number">200</span> <span class="token number">5</span>m<span class="token punctuation">;</span>
+    <span class="token keyword">fastcgi_cache_valid</span> any <span class="token number">1</span>m<span class="token punctuation">;</span>
+    <span class="token keyword">fastcgi_cache</span> m_xiaoshuo_php_cache<span class="token punctuation">;</span>
+
+    <span class="token keyword">add_header</span> x<span class="token operator">-</span>php<span class="token operator">-</span>cache<span class="token operator">-</span>status <span class="token variable">$upstream_cache_status</span><span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>sts<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> inc<span class="token operator">/</span>security<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>cache<span class="token operator">-</span>small<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+    <span class="token keyword">include</span> vhost<span class="token operator">/</span>xiaoshuo<span class="token punctuation">.</span>io<span class="token operator">/</span>php<span class="token punctuation">.</span>conf<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/xuexb/learn-nginx/edit/master/docs/example/add_header.md" target="_blank" rel="noopener noreferrer">编译该页面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">2019-3-7 00:04:15</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learn-nginx/example/autoindex.html" class="prev">
+        配置默认主页、目录浏览
+      </a></span> <span class="next"><a href="/learn-nginx/example/proxy_pass.html">
+        proxy_pass url 反向代理的坑
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learn-nginx/assets/js/app.1c4c538c.js" defer></script><script src="/learn-nginx/assets/js/2.9a13f091.js" defer></script><script src="/learn-nginx/assets/js/8.8abf6ca0.js" defer></script>
+  </body>
+</html>

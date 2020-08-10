@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>日志切割 - Shell | Nginx 入门教程</title>
+    <meta name="description" content="学习 Nginx 配置, 包括: 编译安装、反向代理、重定向、重写、缓存、跨域配置等">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/learn-nginx/logo.jpg">
+    
+    <link rel="preload" href="/learn-nginx/assets/css/0.styles.ad2e1a68.css" as="style"><link rel="preload" href="/learn-nginx/assets/js/app.1c4c538c.js" as="script"><link rel="preload" href="/learn-nginx/assets/js/2.9a13f091.js" as="script"><link rel="preload" href="/learn-nginx/assets/js/20.1a65780a.js" as="script"><link rel="prefetch" href="/learn-nginx/assets/js/10.196aa240.js"><link rel="prefetch" href="/learn-nginx/assets/js/11.22647cc5.js"><link rel="prefetch" href="/learn-nginx/assets/js/12.6f7d9112.js"><link rel="prefetch" href="/learn-nginx/assets/js/13.7e6c2cad.js"><link rel="prefetch" href="/learn-nginx/assets/js/14.6a369d36.js"><link rel="prefetch" href="/learn-nginx/assets/js/15.dc022b78.js"><link rel="prefetch" href="/learn-nginx/assets/js/16.7f73c2a8.js"><link rel="prefetch" href="/learn-nginx/assets/js/17.c4925c6e.js"><link rel="prefetch" href="/learn-nginx/assets/js/18.8dc14074.js"><link rel="prefetch" href="/learn-nginx/assets/js/19.c97e5511.js"><link rel="prefetch" href="/learn-nginx/assets/js/21.d6bbd207.js"><link rel="prefetch" href="/learn-nginx/assets/js/22.b0a82c9f.js"><link rel="prefetch" href="/learn-nginx/assets/js/23.0f04b34a.js"><link rel="prefetch" href="/learn-nginx/assets/js/24.b6bc2a39.js"><link rel="prefetch" href="/learn-nginx/assets/js/25.457e175f.js"><link rel="prefetch" href="/learn-nginx/assets/js/26.112eb492.js"><link rel="prefetch" href="/learn-nginx/assets/js/27.aba9c3f3.js"><link rel="prefetch" href="/learn-nginx/assets/js/28.56cf6258.js"><link rel="prefetch" href="/learn-nginx/assets/js/29.ea48211d.js"><link rel="prefetch" href="/learn-nginx/assets/js/3.b1dc9dc3.js"><link rel="prefetch" href="/learn-nginx/assets/js/30.9404d874.js"><link rel="prefetch" href="/learn-nginx/assets/js/31.a26ec89b.js"><link rel="prefetch" href="/learn-nginx/assets/js/4.5f60d4ea.js"><link rel="prefetch" href="/learn-nginx/assets/js/5.3ae4be87.js"><link rel="prefetch" href="/learn-nginx/assets/js/6.d9149e77.js"><link rel="prefetch" href="/learn-nginx/assets/js/7.2d970754.js"><link rel="prefetch" href="/learn-nginx/assets/js/8.8abf6ca0.js"><link rel="prefetch" href="/learn-nginx/assets/js/9.0899acfe.js">
+    <link rel="stylesheet" href="/learn-nginx/assets/css/0.styles.ad2e1a68.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/learn-nginx/" class="home-link router-link-active"><!----> <span class="site-name">Nginx 入门教程</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/learn-nginx/guide/" class="nav-link">
+  入门
+</a></div><div class="nav-item"><a href="/learn-nginx/variable/" class="nav-link">
+  变量
+</a></div><div class="nav-item"><a href="/learn-nginx/example/" class="nav-link router-link-active">
+  示例
+</a></div> <a href="https://github.com/xuexb/learn-nginx" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/learn-nginx/guide/" class="nav-link">
+  入门
+</a></div><div class="nav-item"><a href="/learn-nginx/variable/" class="nav-link">
+  变量
+</a></div><div class="nav-item"><a href="/learn-nginx/example/" class="nav-link router-link-active">
+  示例
+</a></div> <a href="https://github.com/xuexb/learn-nginx" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>示例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/learn-nginx/example/" class="sidebar-link">示例</a></li><li><a href="/learn-nginx/example/error-page.html" class="sidebar-link">Nginx 状态码配置和错误文件</a></li><li><a href="/learn-nginx/example/www-permanent.html" class="sidebar-link">主域301重定向</a></li><li><a href="/learn-nginx/example/nodejs-proxy.html" class="sidebar-link">Node.js 反向代理</a></li><li><a href="/learn-nginx/example/image-valid.html" class="sidebar-link">配置图片防盗链</a></li><li><a href="/learn-nginx/example/https.html" class="sidebar-link">配置 HTTPS</a></li><li><a href="/learn-nginx/example/domain.html" class="sidebar-link">配置泛域名转发</a></li><li><a href="/learn-nginx/example/echo.html" class="sidebar-link">学习使用 echo 模块</a></li><li><a href="/learn-nginx/example/http-concat.html" class="sidebar-link">使用 nginx-http-concat</a></li><li><a href="/learn-nginx/example/split-log.html" class="active sidebar-link">日志切割 - Shell</a></li><li><a href="/learn-nginx/example/expires.html" class="sidebar-link">配置浏览器缓存</a></li><li><a href="/learn-nginx/example/autoindex.html" class="sidebar-link">配置默认主页、目录浏览</a></li><li><a href="/learn-nginx/example/add_header.html" class="sidebar-link">add_header 指令技巧</a></li><li><a href="/learn-nginx/example/proxy_pass.html" class="sidebar-link">proxy_pass url 反向代理的坑</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="日志切割-shell"><a href="#日志切割-shell" class="header-anchor">#</a> 日志切割 - Shell</h1> <p>由于 Nginx 的日志（包括 access 和 error）默认都是存放在一个文件夹内，当时间长了，日志文件体积越来越大，不易管理，可以自己写个脚本来处理，其实就是定时定点去把日志移动下位置。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token shebang important">#!/bin/sh</span>
+
+<span class="token comment"># 日志源目录</span>
+<span class="token assign-left variable">sourceDir</span><span class="token operator">=</span><span class="token string">'/var/log/nginx/xuexb.com/last'</span>
+
+<span class="token comment"># 日志备份目录</span>
+<span class="token assign-left variable">backDir</span><span class="token operator">=</span><span class="token string">'/var/log/nginx/xuexb.com/back'</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;split-logs start: <span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y-%m-%d %H:%M:%S<span class="token variable">)</span></span>&quot;</span>
+
+<span class="token function">ls</span> <span class="token variable">$sourceDir</span> <span class="token operator">|</span> <span class="token keyword">while</span> <span class="token builtin class-name">read</span> filename
+<span class="token keyword">do</span>
+    <span class="token function">mkdir</span> -p <span class="token string">&quot;<span class="token variable">$backDir</span>/<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y%m%d<span class="token variable">)</span></span>/&quot;</span>
+    <span class="token function">mv</span> <span class="token string">&quot;<span class="token variable">$sourceDir</span>/<span class="token variable">$filename</span>&quot;</span> <span class="token string">&quot;<span class="token variable">$backDir</span>/<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y%m%d<span class="token variable">)</span></span>/&quot;</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$sourceDir</span>/<span class="token variable">$filename</span> =&gt; <span class="token variable">$backDir</span>/<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y%m%d<span class="token variable">)</span></span>/<span class="token variable">$filename</span>&quot;</span>
+<span class="token keyword">done</span>
+
+<span class="token comment"># 刷新nginx</span>
+<span class="token function">kill</span> -USR1 <span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> /var/run/nginx.pid<span class="token variable">`</span></span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;split-logs end: <span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%Y-%m-%d %H:%M:%S<span class="token variable">)</span></span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;----------------&quot;</span>
+</code></pre></div><p>有几个注意的:</p> <ol><li>日志源目录 - 该目录存放日志文件，如 access.log，error.log，当然如果你的站点比较多，可以用域名来命名，比如: xuexb.com.access.log，xuexb.com.error.log 。</li> <li>日志备份目录 - 会以<code>Ymd</code>命名文件夹名存放在该目录。</li> <li>刷新 Nginx - 由于是直接移动日志文件，移动后需要刷新下 Nginx 使其再生成日志文件，当然也可以 <code>nginx -s reload</code> ，但 <code>reload</code> 要比 <code>kill</code> 的慢，而 <code>kill -USR1</code> 是无损的。</li> <li>定时任务 - 需要使用 <code>root</code> 帐户下使用 <code>crontab -e</code> 插入一条定时任务，定时 23:55 开始分割，后面是把错误和信息输出到指定文件，方便调试，如:</li></ol> <div class="language- extra-class"><pre class="language-text"><code>55 23 * * * sh /你的目录/split-log &gt;&gt; /var/log/nginx/crontab.log 2&gt;&amp;1
+</code></pre></div><hr> <p>当然这只是日志切割的一种，还有很多种方法~</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/xuexb/learn-nginx/edit/master/docs/example/split-log.md" target="_blank" rel="noopener noreferrer">编译该页面</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">最后更新:</span> <span class="time">2018-9-2 08:53:50</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/learn-nginx/example/http-concat.html" class="prev">
+        使用 nginx-http-concat
+      </a></span> <span class="next"><a href="/learn-nginx/example/expires.html">
+        配置浏览器缓存
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/learn-nginx/assets/js/app.1c4c538c.js" defer></script><script src="/learn-nginx/assets/js/2.9a13f091.js" defer></script><script src="/learn-nginx/assets/js/20.1a65780a.js" defer></script>
+  </body>
+</html>
